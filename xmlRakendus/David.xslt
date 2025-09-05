@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:msxsl="urn:schemas-microsoft-com:xslt" exclude-result-prefixes="msxsl">
 
@@ -49,7 +49,12 @@
 							-lapsevanema vanus oli
 							<xsl:value-of select="../../@saasta - @saasta"/>aasta vana
 						</xsl:if>
-						<xsl:value-of select="@saasta"/>
+						<td>
+
+							<xsl:value-of select="@saasta"/>
+							
+							
+						</td>
 					</td>
 					<td>
 						<xsl:value-of select="2025 - number(@saasta)"/>
