@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--jada-->
+<inimene saasta="1947">
+	<nimi>Vanaema Valentina</nimi>
+	<riik>Eestonia</riik>
+	<lapsed>
+		<inimene saasta="1968">
+			<nimi>Ema Alina</nimi>
+			<riik>Eestonia</riik>
+			<Lapsed>
+				<inimene saasta="2007">
+					<nimi>David</nimi>
+					<riik>Eestonia</riik>
+				</inimene>
+				<inimene saasta="1998">
+					<nimi>Mark</nimi>
+					<riik>Eestonia</riik>
+				</inimene>
+			</Lapsed>
+		</inimene>
+		<inimene saasta="1970">
+			<nimi>Sergei</nimi>
+			<riik>Inglasmaa</riik>
+			<Lapsed>
+				<inimene saasta="2009">
+					<nimi>Sofia</nimi>
+					<riik>Inglasmaa</riik>
+				</inimene>
+				<inimene saasta="2015">
+					<nimi>Amelia</nimi>
+					<riik>Inglasmaa</riik>
+				</inimene>
+			</Lapsed>
+		</inimene>
+	</lapsed>
+</inimene>
