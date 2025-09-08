@@ -10,7 +10,16 @@
 			<xsl:for-each select ="//inimene">
 				<xsl:sort select="@saasta" order="descending"/>
 				<li>
-					<xsl:value-of select="nimi"/>
+					<xsl:choose>
+						<xsl:when test="contains(nimi, 'a')">
+							<span style="color: red;">
+								<xsl:value-of select="nimi"/>
+							</span>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="nimi"/>
+						</xsl:otherwise>
+					</xsl:choose>
 					,
 					<xsl:value-of select="@saasta"/>
 					: <i>
@@ -18,11 +27,12 @@
 					</i>
 					, vanus:
 					<xsl:value-of select="2025 - number(@saasta)"/>
-					, 
+					,
 					<xsl:value-of select="riik"/>
 				</li>
 			</xsl:for-each>
 		</ul>
+
 		<strong>Iga inimese kohta näita mitmendal oma vanema sünniaastal ta sündis</strong>
 		<table border="1">
 			<tr>
@@ -39,22 +49,28 @@
 						<xsl:value-of select="../../nimi"/>
 					</td>
 					<td>
-						<xsl:value-of select="nimi"/>
+						<xsl:choose>
+							<xsl:when test="count(Lapsed/inimene) &gt;= 2">
+								<span style="background-color: yellow;">
+									<xsl:value-of select="nimi"/>
+								</span>
+							</xsl:when>
+							<xsl:otherwise>
+								<xsl:value-of select="nimi"/>
+							</xsl:otherwise>
+						</xsl:choose>
 					</td>
 					<td>
-					<xsl:value-of select="../../riik"/>
+						<xsl:value-of select="../../riik"/>
 					</td>
 					<td>
 						<xsl:if test="../..">
 							-lapsevanema vanus oli
 							<xsl:value-of select="../../@saasta - @saasta"/>aasta vana
 						</xsl:if>
-						<td>
-
-							<xsl:value-of select="@saasta"/>
-							
-							
-						</td>
+					</td>
+					<td>
+						<xsl:value-of select="@saasta"/>
 					</td>
 					<td>
 						<xsl:value-of select="2025 - number(@saasta)"/>
@@ -62,29 +78,5 @@
 				</tr>
 			</xsl:for-each>
 		</table>
-		<strong>
-			<ol>
-				<li>
-					Count() - kogus - üldkogus - kõik nimed xml jadas:
-					<xsl:value-of select="count(//nimi)"/>
-				</li>
-				<li>
-					substring() - eralda kolm esimest tähte nimest
-					<xsl:for-each select="//inimene">
-						<xsl:value-of select="substring(nimi, 1, 3)"/>
-					</xsl:for-each>
-				</li>
-				<li>
-					substring() - eralda kolm viimast tähte nimest
-					<xsl:for-each select="//inimene">
-						<xsl:value-of select="substring(nimi, string-length(nimi)-2,3)"/>
-					</xsl:for-each>
-				</li>
-				<li>starts-with</li>
-				<xsl:for-each select ="//inimene[starts-with(nimi, 'E')]">
-					<xsl:value-of select="nimi"/>,
-				</xsl:for-each>
-			</ol>
-		</strong>
 	</xsl:template>
 </xsl:stylesheet>
